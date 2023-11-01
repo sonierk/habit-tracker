@@ -1,0 +1,47 @@
+
+
+<% for(let habit of habits) {%>
+    <div class="container weekly-view">
+        <div class="habit-title"><h2><%= habit.title  %></h2></div>
+        <div class="habit-container">
+            <% for(let date of weeklyDates) {%>
+                <div class="day-container">
+                    <div class="calender">
+                        <p><%= date %></p>
+                    </div>
+                    <% 
+                    let found;
+                    let status;
+                    habit.dates.find((item) => {
+                        if(item.date === date)
+                        {
+                            found = true;
+                            status = item.complete;
+                        }
+                    });
+                %>
+                <!-- Status of completion  -->
+                <div>
+                    <a href="/users/habit/toggle-status/?id=<%= habit.id %>&date=<%= date %>" class="mark-status">
+                    <% if (found&&status=='y') { %>
+                        <i class="fas fa-check-circle" style="color: rgb(130, 189, 107)"></i>   
+                    <% }else if (found && status== 'n'){ %>
+                        <i class="fas fa-times-circle" style="color: orange"></i>
+                        <% }else { %>
+                            <i class="fa-solid fa-circle"></i>
+                        <% } %>
+                    </a>
+                </div>
+                </div>
+                <% } %>
+
+                <!-- Delete  -->
+                <div class="menu">
+                    <a href="/users/habit/delete-habit/?id=<%=habit._id%>" style="text-decoration: none;">
+                        <i class="fa-regular fa-trash-can fa-lg" style="color: red"></i>
+                    </a>
+                </div>
+        </div>
+    </div>
+
+    <% } %>

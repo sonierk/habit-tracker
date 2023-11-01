@@ -1,0 +1,56 @@
+/* header.css */
+.nav {
+    background-color: #007BFF;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.title a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+}
+
+.userPresent {
+    display: flex;
+    align-items: center;
+}
+
+.nameOfUser {
+    margin-right: 10px;
+}
+
+.logOut a {
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.noUser ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.noUser li {
+    margin-right: 10px;
+}
+
+.noUser a {
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #fff;
+}

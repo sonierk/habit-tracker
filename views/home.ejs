@@ -1,0 +1,53 @@
+
+<link rel="stylesheet" href="/css/home.css">
+
+<%- include('_header') %>
+
+<div>
+
+<!-- When user not logged In  -->
+<% if(!locals.user) { %>
+    <img src="" alt="welcome image">
+    <div class="welcome-title">
+        Get Started in to making Good new habits
+    </div>
+    <form action="/users/sign-up" method="get">
+        <button class="welcome-btn">Start</button>
+    </form>
+<%} else if(locals.user && habits.length==0) {%>
+    <%=habits%>
+    <br>
+    <div id="noHabitText">No Habit Entry for <strong style="color: blue; font-family: 'Courier New', Courier, monospace;"><%= locals.user.name %></strong></div>
+    <br>
+ <!-- button to open add habit form  -->
+ <button id="open-btn-fixed" onclick="openForm()" > + Add Habit</button>
+ <div class="form-popup" id="myForm">
+     <form action="/users/habit/create-habit" id="createHabit" method="POST" class="form-container">
+         <input type="text" name="title" placeholder="Enter habit title" required>
+         <input type="text" name="desc" placeholder="Description">
+         <button type="reset" id="cancel-btn" onclick="closeForm()">Cancel</button>
+         <button type="submit" id="save-btn">Save</button>
+     </form>
+ </div>
+ <%}else{%>
+    <!-- Weekly veiw  -->
+    <%- include('_weekly') %>
+    <!-- Daily view  -->
+    <%- include('_daily') %>
+
+    <!-- button to open add habit form  -->
+    <button id="open-btn" class="button-30" onclick="openForm()" > Add Habit</button>
+    <div class="form-popup" id="myForm">
+        <form action="/users/habit/create-habit" id="createHabit" method="POST" class="form-container">
+            <input type="text" name="title" placeholder="Enter habit title" required>
+            <input type="text" name="desc" placeholder="Description">
+            <button type="reset" id="cancel-btn" onclick="closeForm()">Cancel</button>
+            <button type="submit" id="save-btn">Save</button>
+        </form>
+    </div>
+    <button id="change-view" class="button-30" onclick="changeView()" > Show Daily</button>
+
+<%}%>
+
+</div>
+<script src="/js/home.js"></script>

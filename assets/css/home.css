@@ -1,0 +1,338 @@
+
+
+body {
+    background-image: url(../img/3.jpg);
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+    /* font-family: "JetBrains Mono",monospace; */
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  left: 30%;
+  top: 47%;
+  z-index: 9;
+  text-align: center;
+  
+}
+
+.container {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 200px;
+}
+
+.habit-container {
+  display: flex;
+  justify-content:space-evenly;
+  background-color: rgba(255, 255, 255, 0.85);
+  width: 70%;
+  height: 90px;
+  margin-right: 170px;
+  padding: 5px;
+  margin-top: 20px;
+}
+
+.day-container {  
+  margin-right: 5px;
+}
+.calender {
+  display: flex;
+}
+
+.mark-status {
+  margin-left: 18px;
+  font-size: 20px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.281);
+}
+
+
+/* ************************ */
+/* Styles for the container */
+.container.weekly-view {
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles for the habit title */
+.habit-title h2 {
+  font-size: 20px;
+  margin: 0;
+  color: #333;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Styles for the habit container */
+.habit-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* Styles for the day container */
+.day-container {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  background-color: #f5f5f5;
+  position: relative;
+}
+
+/* Styles for the calendar date */
+.calender p {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Styles for the mark status link */
+.mark-status {
+  text-decoration: none;
+  display: block;
+  margin-top: 10px;
+  color: #333;
+  font-size: 18px;
+}
+
+/* Styles for the check mark and cross mark */
+i.fas.fa-check-circle {
+  color: rgb(130, 189, 107);
+}
+
+i.fas.fa-times-circle {
+  color: rgb(241, 121, 109);
+}
+
+/* Styles for the "none" status */
+i.fa-solid.fa-circle {
+  color: #333;
+}
+
+/* Styles for the delete link */
+.menu a {
+  text-decoration: none;
+  display: block;
+  margin-top: 10px;
+  color: rgb(241, 121, 109);
+  font-size: 18px;
+}
+
+/* Styles for the trash can icon */
+i.fa-regular.fa-trash-can {
+  font-size: 24px;
+}
+
+/* Style for the container of each habit */
+.container.weekly-view {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  background-color: #f5f5f5;
+}
+
+/* Style for the habit title */
+.habit-title h2 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+/* Style for the habit container */
+.habit-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Style for the day container */
+.day-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 14.28%; /* Each day takes 1/7 of the width (7 days in a week) */
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Style for the calendar date */
+.calender p {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+/* Style for the status of completion */
+.mark-status {
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  margin-top: 5px;
+  font-size: 1.2em;
+}
+
+/* Style for "yes" status */
+.mark-status i.fas.fa-check-circle {
+  color: rgb(130, 189, 107);
+}
+
+/* Style for "no" status */
+.mark-status i.fas.fa-times-circle {
+  color: rgb(241, 121, 109);
+}
+
+/* Style for "none" status */
+.mark-status i.fa-solid.fa-circle {
+  color: #000; /* You can customize the color for "none" status */
+}
+
+/* Style for the delete icon */
+.menu a {
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Style for the delete icon */
+.menu i.fa-regular.fa-trash-can {
+  color: rgb(241, 121, 109);
+}
+
+
+/* Style for the container with class "daily-view" */
+.container.daily-view {
+  display: none;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  background-color: #f9f9f9;
+}
+
+/* Style for the habit title within the container */
+.habit-title h2 {
+  font-size: 24px;
+  color: #333;
+}
+
+/* Style for the complete status within the container */
+.mark-status-daily {
+  font-size: 20px;
+  color: #666;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Style for the habit description within the container */
+.habit-desc p {
+  font-size: 20px;
+  color: #555;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Style for the menu containing edit and delete options */
+.menu {
+  margin-top: 10px;
+}
+
+/* Style for the "Edit" link (the pencil icon) */
+.clickIt {
+  text-decoration: none;
+  margin-right: 10px;
+  color: black;
+}
+
+/* Style for the "Edit" form popup */
+.form-popup {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 1;
+}
+
+/* Style for the inputs and buttons within the "Edit" form */
+.form-popup input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+}
+
+.form-popup button {
+  padding: 5px 10px;
+  margin: 5px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style for the "Cancel" button within the "Edit" form */
+#cancel-btn {
+  background-color: #ccc;
+}
+
+/* Style for the "Save" button within the "Edit" form */
+#save-btn {
+  background-color: #4CAF50;
+}
+
+/* Style for the "Delete" link (the trash can icon) */
+.fa-trash-can {
+  color: red;
+}
+
+/* Style for the "No description" paragraph */
+.habit-desc p:empty::before {
+  content: "- No description -";
+  color: #777;
+}
+
+#open-btn{
+    position: absolute;
+    left: 0;
+    top: 40%;
+    transform: translateY(-50%);
+    padding: 10px 20px;
+    background-color: #0074e4; /* Background color */
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+
+#change-view{
+  position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px 20px;
+    background-color: #0074e4; /* Background color */
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#open-btn-fixed{
+  padding: 10px 20px;
+  background-color: #0074e4;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+
+
+
