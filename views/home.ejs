@@ -7,13 +7,15 @@
 
 <!-- When user not logged In  -->
 <% if(!locals.user) { %>
-    <img src="" alt="welcome image">
+    <div id="welcome-landing">
+    
     <div class="welcome-title">
         Get Started in to making Good new habits
     </div>
     <form action="/users/sign-up" method="get">
         <button class="welcome-btn">Start</button>
     </form>
+    </div>
 <%} else if(locals.user && habits.length==0) {%>
     <%=habits%>
     <br>

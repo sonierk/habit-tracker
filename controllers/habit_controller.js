@@ -86,6 +86,31 @@ module.exports.deleteHabit = async (req, res)=> {
 // Edit Habit 
 module.exports.editHabit = async (req, res)=> {
     console.log('Habit edited');
+    try {
+        let newTitle = req.body.title;
+        let newDesc = req.body.desc;
+        let id = req.query.id;
+        let user = req.user._id;
+
+        let updatedResult = await Habit.findByIdAndUpdate(
+            {
+                _id: id,
+                user: user
+            }, {
+                title: newTitle,
+                desc: newDesc
+            }
+        );
+        // console.log(updatedResult);
+        req.flash('success', 'Habit Updated Successfully');
+        return res.redirect('/');
+        
+    } catch (error) {
+        console.log('Error in habitController/editHabit', error);
+        return res.render('404', {
+            title: "Not Found"
+        })
+    }
 }
 
 // This custom function return the MM DD format of date 
